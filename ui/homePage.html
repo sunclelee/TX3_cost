@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><base href=".">      
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, user-scalable=no">
+	<title>设备终端号查询</title>    
+	<link rel="icon" href="../static/image/favicon.ico" type="image/x-icon">	
+	<link rel="stylesheet" href="../static/css/atmcode.min.my01.css">
+	<link rel="stylesheet" href="../static/css/jquery.mobile.icons.min.css">
+	<link rel="stylesheet" href="../static/css/jquery.mobile.structure-1.4.5.min.my01.css">
+	<link rel="stylesheet" href="../static/css/code.css" type="text/css">
+	<script src="../static/js/jquery-1.11.1.min.js"></script>
+	<script src="../static/js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="../static/js/query01.js"></script>
+	<script>
+	$( document ).on( "mobileinit", function() {
+	$.mobile.loader.prototype.options.text = "努力加载中...";
+	});
+	function test(){
+		var aaa = document.getElementById('pinggu');
+		if (aaa.disabled == false) {
+			aaa.disabled = "disabled";
+			}
+		else if (aaa.disabled == true){
+			$("#pinggu").removeAttr("disabled");}
+		};
+	</script>
+</head>
+<body class="ui-mobile-viewport ui-overlay-a">﻿
+    <div data-role="page" id="inqBANK_CODE" data-url="inqBANK_CODE" tabindex="0" class="ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed ui-page-active" style="padding-top: 44px; padding-bottom: 35px; min-height: 578px;">       
+        <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-header-fixed slidedown ui-bar-inherit ui-fixed-hidden">
+            <a href="/tx3" data-transition="none" data-icon="back" rel="external" class="ui-btn-left ui-btn ui-icon-refresh ui-btn-icon-notext ui-corner-all" data-role="button" role="button">返回</a>        
+            <h1 class="ui-title" role="heading" aria-level="1">天下叁角色评估</h1>
+			  <a href="javascript:display();" data-transition="none" data-icon="add" rel="external" class="ui-btn-right ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all" data-role="button" role="button" id="addinfo">补充</a>   
+        </div>
+       <p>
+		<form id="form1" data-transition="none" data-ajax="false" onsubmit="return false;"> 
+			 <span style="float:left;margin:1em 1em 1em 1em;">请选择查询类型：</span>
+			 <select data-clear-btn="true" name="module" id="module" placeholder="请输入英雄榜" value="请选择查询类型" onchange="setPrompt()">
+				<option value="yxb" selected="selected">英雄榜</option>
+				<option value="name" >角色名称</option>
+		   	</select>
+		   	<span class="ui-body" style="float:left;">时装珍兽等软价值权重：</span>
+			<input type="range" name="softvalue" id="softvalue" value="1" min="0" max="1" step="0.1" data-show-value="true">
+			<input data-clear-btn="true" name="yxb" id="yxb" placeholder="请输入英雄榜，要带http://" type="text" value=>
+			<div data-role="content" id="extra" style="display:none">
+				<fieldset data-role="controlgroup" data-type="horizontal" data-corners="false" data-mini="true">
+					<legend>特殊时装共有 <input type="text" maxlength="3" id="clothNum" style="border-width:1px;border-color=black;width:50px;text-align:center;"  data-role="none"> 套，其中包含:</legend>
+					<label>
+						<input type="checkbox" name="clothList" value="121705">海棠未雨
+					</label>
+					<label>
+						<input type="checkbox" name="clothList" value="21339">绛云思暖
+					</label>
+					<label>
+						<input type="checkbox" name="clothList" value="21189">黛染青花
+					</label>
+					<label>
+						<input type="checkbox" name="clothList" value="21121">玄素天成
+					</label>
+					<label>
+						<input type="checkbox" name="clothList" value="200001">幽都月明
+					</label>
+				</fieldset>
+				<fieldset data-role="controlgroup" data-type="horizontal" data-corners="false" data-mini="true">
+                 <legend>公共时间珍兽共有 <input type="text" maxlength="3" id="riderNum" style="border-width:1px;border-color=black;width:50px;text-align:center;"  data-role="none"> 个，其中包含:</legend>
+					<label>
+						<input type="checkbox" name="riderList" value="215404">鲤跃龙腾
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="215305">战火燎原
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="21999">升龙变
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="21665">一叶扁舟
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="215324">长河落日
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="100005">以梦为马
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="100004">星辰变
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="215124">萌眸善睐
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="100003">梦境之主
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="215187">少年飞驰
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="100002">游龙变
+					</label>
+					<label>
+						<input type="checkbox" name="riderList" value="100001">雷之梦境守护
+					</label>
+				</fieldset>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>地魂合体元魂珠数量:</legend>
+					<label>
+						<input type="radio" name="yuanhunzhu" value="0" checked="true">0
+					</label>
+					<label>
+						<input type="radio" name="yuanhunzhu" value="1">1
+					</label>
+					<label>
+						<input type="radio" name="yuanhunzhu" value="2">2
+					</label>
+					<label>
+						<input type="radio" name="yuanhunzhu" value="3">3
+					</label>
+					<label>
+						<input type="radio" name="yuanhunzhu" value="4">4
+					</label>
+					<label>
+						<input type="radio" name="yuanhunzhu" value="5">5
+					</label>
+				</fieldset>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>VIP等级:</legend>
+					<label>
+						<input type="radio" name="vip" value="0" checked="true">9级以下
+					</label>
+					<label>
+						<input type="radio" name="vip" value="9">9
+					</label>
+				</fieldset>
+			</div>
+			<input value="点击评估" id="pinggu" data-icon="grid" data-iconpos="right" data-mini="true" data-theme="b" type="submit">
+    		<!--<button type="button" id="pinggu" data-icon="grid" data-iconpos="right" data-mini="true" data-theme="b">点击评估</button>-->
+		 </form>          
+        <div data-role="content">
+        	<div id="result" class="ui-body ui-corner-all ui-body-a" style=>
+    		评估须知：<P>⑴.英雄榜格式：http://bang.tx3.163.com/bang/role/xx_xxxxxx</br>角色名称格式：服务器+角色全名，需用-号分隔，比如“天下无双-壹枝穿云箭”<P>⑵.右上角+号可展开补充时装珍兽等信息，如不展开默认评估数据来源为英雄榜(主)+藏宝阁(辅)<P>⑶.调整因子是比较同门派同等级同价位的角色所得，如果为0表示可供比较的角色不足10人故不计，调整因子越全代表参考价值越高 
+    		<p>&nbsp;</p>            
+          </div>
+        </div>
+        <div data-role="footer" id="footer" data-position="fixed" style="text-align:center">评估结果仅供参考</div>
+    </div>
+	<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>努力加载中...</h1></div>
+</body>
+</html>
